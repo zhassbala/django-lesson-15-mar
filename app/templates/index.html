@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load utility_tags %}
+
+{% block content %}
+<div id="index-page">
+  this is an index page
+  {% include 'quote.html' %}
+<ul>
+  {% for i in a %}
+    <li><strong>{{ forloop.counter }}.</strong> {{ i }}</li>
+  {% endfor %}
+
+  <p>check it out, this is a join filter applied to the context variable: {{ a | join:'; ' }}</p>
+  <p>length of the context: {{ a|length }}</p>
+  <p>this is a custom filter that I made in utility_tags.py: <code>value: 5</code> <code>incremented value: {{ 5|increment:3 }}</code></p>
+</ul>
+</div>
+{% endblock %}
